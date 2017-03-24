@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}Nederlandstalige MODX Community{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link rel="stylesheet" href="/assets/modxnl2017/main.css">
+
+    {% block head %}{% endblock %}
+</head>
+<body>
+
+{% block preheader %}{% endblock %}
+
+<a href="{{ path_for('home') }}" title="Nederlandstalige MODX Community" class="logo">Nederlandstalige MODX Community</a>
+
+<div class="container">
+    <section>
+        {% block content %}<h1>Oeps, deze pagina is nog leeg.</h1>{% endblock %}
+    </section>
+
+    {% block sidebar %}
+    <aside>
+        <h3>MODX in Nederland & België</h3>
+        <ul>
+            <li>Foo</li>
+            <li>Bar</li>
+            <li>Baz</li>
+            {% block navigation %}{% endblock %}
+        </ul>
+    </aside>
+    {% endblock %}
+    <div class="companies">
+        <h3>MODX.nl is mede mogelijk gemaakt door</h3>
+        <ul>
+            <li class="modmore"><a href="https://www.modmore.com/" title="modmore.com" target="_blank">modmore.com</a></li>
+        </ul>
+    </div>
+</div>
+
+
+{% block footer %}{% endblock %}
+
+{% block js_footer %}{% endblock %}
+</body>
+</html>
