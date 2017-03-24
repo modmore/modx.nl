@@ -2,7 +2,10 @@
 
 namespace modxnl\Controllers;
 
+use Cache\Adapter\Filesystem\FilesystemCachePool;
 use DMS\Service\Meetup\MeetupKeyAuthClient;
+use League\Flysystem\Adapter\Local;
+use League\Flysystem\Filesystem;
 use Monolog\Logger;
 use Slim\Container;
 use Slim\Http\Request;
@@ -122,6 +125,21 @@ class Base
 
     public function getMeetupEvents()
     {
+        // Get a local cache adapter
+        $fsAdapter = new Local($_ENV['CACHE_DIR'] . 'meetup.com/');
+        $fs = new Filesystem($fsAdapter);
+        $cachePool = new FilesystemCachePool($fs);
+
+        // Try to load the data from cache, if possible
+        $item = $cachePool->getItem('events');
+        if ($item->isHit()) {
+            $data = $item->get();
+            $this->setVariable('future_events', $data['future']);
+            $this->setVariable('past_events', $data['past']);
+            return;
+        }
+
+        // Create a client instance with our api key
         $client = MeetupKeyAuthClient::factory(array('key' => $_ENV['MEETUP_KEY']));
 
         // Get future events
@@ -135,7 +153,6 @@ class Base
             $e['time'] = $e['time'] / 1000;
             $future[] = $e;
         }
-        $this->setVariable('future_events', $future);
 
         // Past events
         $response = $client->getEvents([
@@ -149,6 +166,16 @@ class Base
             $e['time'] = $e['time'] / 1000;
             $past[] = $e;
         }
+
+        $this->setVariable('future_events', $future);
         $this->setVariable('past_events', $past);
+
+        // Store data in the cache so we don't have to hit up the API all the time
+        $item->set([
+            'future' => $future,
+            'past' => $past,
+        ]);
+        $item->expiresAfter(6 * 60 * 60); // 6 hours cache
+        $cachePool->save($item);
     }
 }
