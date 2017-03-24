@@ -10,7 +10,7 @@ class Html extends Base
     public $breadcrumbs = [];
     public function returnTemplate($template, Request $request, Response $response, array $args = array())
     {
-        $this->setVariables($args);
+        $this->initialize($request, $response, $args);
         $this->render($template, $response);
         return $response;
     }

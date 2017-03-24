@@ -30,6 +30,33 @@
             <li>Baz</li>
             {% block navigation %}{% endblock %}
         </ul>
+
+        <h3>Meetups</h3>
+        <p><a href="https://www.meetup.com/modx-nederland/" target="_blank">Wordt lid van de meetup groep</a> om op de hoogte te blijven van geplande meetups.</p>
+
+        <h4>Binnenkort</h4>
+        {% for event in future_events %}
+            <li>
+                <small class="event-date">{{ event.time|localizeddate('medium', 'short') }} in {{ event.venue.city }}</small>
+                <br>
+                <a href="{{ event.event_url }}" target="_blank">{{ event.name }}</a>
+            </li>
+        {% else %}
+            <p>Er staan nog geen nieuwe meetups op de planning.</p>
+        {% endfor %}
+
+        <h4>Nèt gemist..</h4>
+        <ul>
+        {% for event in past_events %}
+            <li>
+                <small class="event-date">{{ event.time|localizeddate('medium', 'short') }} in {{ event.venue.city }}</small>
+                <br>
+                <a href="{{ event.event_url }}" target="_blank">{{ event.name }}</a>
+            </li>
+        {% else %}
+            <li>Geen oude meetups gevonden.</li>
+        {% endfor %}
+        </ul>
     </aside>
     {% endblock %}
     <div class="companies">

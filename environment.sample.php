@@ -21,3 +21,10 @@ $_ENV['SLIM_APP_OPTIONS'] = [
         'displayErrorDetails' => true,
     ]
 ];
+
+// From https://secure.meetup.com/meetup_api/key/
+$_ENV['MEETUP_KEY'] = '';
+$_ENV['MEETUP_GROUP_PATH'] = '';
+
+locale_set_default('nl_NL.UTF-8');
+

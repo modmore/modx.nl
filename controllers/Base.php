@@ -2,6 +2,7 @@
 
 namespace modxnl\Controllers;
 
+use DMS\Service\Meetup\MeetupKeyAuthClient;
 use Monolog\Logger;
 use Slim\Container;
 use Slim\Http\Request;
@@ -49,6 +50,8 @@ class Base
         $this->response =& $response;
         $this->setArguments($args);
         $this->setVariable('args', $args);
+
+        $this->getMeetupEvents();
 
         return true;
     }
@@ -115,5 +118,37 @@ class Base
     public function getArguments()
     {
         return $this->arguments;
+    }
+
+    public function getMeetupEvents()
+    {
+        $client = MeetupKeyAuthClient::factory(array('key' => $_ENV['MEETUP_KEY']));
+
+        // Get future events
+        $response = $client->getEvents([
+            'group_urlname' => $_ENV['MEETUP_GROUP_PATH'],
+            'status' => 'upcoming'
+        ]);
+        $future = [];
+        foreach ($response as $event) {
+            $e = $event;
+            $e['time'] = $e['time'] / 1000;
+            $future[] = $e;
+        }
+        $this->setVariable('future_events', $future);
+
+        // Past events
+        $response = $client->getEvents([
+            'group_urlname' => $_ENV['MEETUP_GROUP_PATH'],
+            'status' => 'past',
+            'desc' => 'desc',
+        ]);
+        $past = [];
+        foreach ($response as $event) {
+            $e = $event;
+            $e['time'] = $e['time'] / 1000;
+            $past[] = $e;
+        }
+        $this->setVariable('past_events', $past);
     }
 }
