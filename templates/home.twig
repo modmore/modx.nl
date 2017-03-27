@@ -1,13 +1,61 @@
 {% extends "base.twig" %}
 
 
-{% block content %}
-    <h1>Hey hallo!</h1>
-    <p>Welkom op de MODX.nl, het portaal voor de Nederlandstalige MODX gebruikers en ontwikkelaars.</p>
+{% block container %}
+    <div class="flex-grid">
+        <div class="flex-grid-item double-width" id="block-intro">
+            <div class="flex-grid-item-inner">
+                <h2>Hallo, MODX!</h2>
+                <p>MODX Revolution is een content management platform waarmee je <em>creatieve vrijheid</em> kunt ervaren. Templates zijn jouw domein als designer of developer, en MODX geeft je die vrijheid. Zowel in MODX zelf, als in de <a href="https://modx.com/extras/">honderden uitbreidingen</a> blijf je in controle.</p>
+            </div>
+        </div>
 
-    <ul>
-        <li><a href="https://www.meetup.com/modx-nederland/">Komende MODX Meetups</a></li>
-    </ul>
+        <div class="flex-grid-item double-height flex-right" id="block-meetups">
+            <div class="flex-grid-item-inner">
+                <h2>Meetups</h2>
+                <p>Leer andere gebruikers kennen en deel ervaringen tijdens MODX Meetups.</p>
 
-    <p><a href="https://github.com/modmore/modx.nl">Help mee met deze site op GitHub &raquo;</a></p>
+                <ul>
+                {% for event in future_events %}
+                    <li>
+                        <small class="event-date">{{ event.time|localizeddate('medium', 'short') }} in {{ event.venue.city }}</small>
+                        <br>
+                        <a href="{{ event.event_url }}" target="_blank">{{ event.name }}</a>
+                    </li>
+                {% else %}
+                    <li>Er staan nog meetups op de planning.</li>
+                {% endfor %}
+                </ul>
+
+                <h4>In de buurt</h4>
+                <p>Vind je het niet erg om wat verder te reizen? Wereldwijd vinden regelmatig MODX meetups plaats, waaronder maandelijkse meetups in Keulen en München.</p>
+                <ul>
+                    <li><a href="https://www.meetup.com/MODX-Koeln/">MODX Meetups in Keulen</a>, om de maand</li>
+                    <li><a href="https://www.meetup.com/MODX-Muenchen/">MODX Meetups in München</a>, om de maand</li>
+                    <li><a href="https://www.meetup.com/MODX-Berlin/">MODX Meetups in Berlijn</a>, ongeveer 2x per jaar</li>
+                    <li><a href="https://www.meetup.com/MODX-Meetup-London/">MODX Meetups in Londen</a>, jaarlijks</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flex-grid-item" id="block-community">
+            <div class="flex-grid-item-inner">
+                <h2>Belangrijke links</h2>
+                <ul>
+                    <li><a href="https://modx.com">MODX.com</a></li>
+                    <li><a href="https://forums.modx.com">Officiële MODX forum</a>, ook in het <a href="https://forums.modx.com/board/108/dutch">Nederlands</a></li>
+                    <li><a href="https://docs.modx.com/">Documentatie</a></li>
+                    <li><a href="https://modx.org/">Praat mee op Slack</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="flex-grid-item" id="over-modxnl">
+            <div class="flex-grid-item-inner">
+                <h2>Over MODX.nl</h2>
+                <p>MODX.nl is opgezet door <a href="https://github.com/modmore/modx.nl/graphs/contributors">MODX gebruikers</a> als Nederlandstalig portal voor MODX.</p>
+                <p>Heb je toffe ideeën voor de site? <a href="https://github.com/modmore/modx.nl">Bouw mee op GitHub.</a></p>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -16,6 +16,7 @@
 
 <a href="{{ path_for('home') }}" title="Nederlandstalige MODX Community" class="logo">Nederlandstalige MODX Community</a>
 
+{% block container %}
 <div class="container">
     <section>
         {% block content %}<h1>Oeps, deze pagina is nog leeg.</h1>{% endblock %}
@@ -66,9 +67,14 @@
         </ul>
     </div>
 </div>
+{% endblock %}
 
 
-{% block footer %}{% endblock %}
+{% block footer %}
+    <div class="footer">
+        <p>MODX is een geregistreerd trademark van <a href="https://modx.com/">MODX Systems, LLC</a>.</p>
+    </div>
+{% endblock %}
 
 {% block js_footer %}{% endblock %}
 </body>
