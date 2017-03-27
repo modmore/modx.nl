@@ -61,6 +61,9 @@ body.loaded {
 .flex-grid-item.double-width {
     width: 66.666%;
 }
+.flex-grid-item-top-section {
+    padding-bottom: 1.5em;
+}
 .flex-grid-item-inner {
     background: #fff;
     border: 1px solid #ddd;
@@ -136,7 +139,6 @@ img {
     -moz-osx-font-smoothing: grayscale;
     position: relative;
     overflow: hidden;
-    margin: .2em 0;
     padding: 1em;
     cursor: pointer;
     background: #67a749;
