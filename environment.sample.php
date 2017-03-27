@@ -26,5 +26,8 @@ $_ENV['SLIM_APP_OPTIONS'] = [
 $_ENV['MEETUP_KEY'] = '';
 $_ENV['MEETUP_GROUP_PATH'] = '';
 
+// Google analytics profile to add tracking code
+$_ENV['GA_PROFILE'] = '';
+
 locale_set_default('nl_NL.UTF-8');
 

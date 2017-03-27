@@ -53,6 +53,7 @@ class Base
         $this->response =& $response;
         $this->setArguments($args);
         $this->setVariable('args', $args);
+        $this->setVariable('_env', $_ENV);
 
         $this->getMeetupEvents();
 
