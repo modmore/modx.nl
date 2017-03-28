@@ -6,6 +6,36 @@ This repository contains the site hosted on [modx.nl](https://modx.nl) for the D
 
 Contributions are welcome! You can fork the repository, make changes in your own clone, and then send a pull request to this repository. When approved, it will deploy automatically. 
 
+### Setting up
+
+Here's in a nutshell how to set up the site on your own web server.
+
+```` shell
+git clone git@github.com:YOUR_USER_NAME/modx.nl.git
+cd modx.nl
+composer install
+cp environment.sample.php environment.php
+````
+
+If you just want to run a local copy, and don't want to create your own fork, you can replace YOUR_USER_NAME with modmore in the first command. 
+
+If you don't have Composer installed yet, [install that first](https://getcomposer.org/download/). 
+
+At this point the site should be functional in the `www` folder. If you're having trouble getting it to work, please open an issue with details. 
+
+### Configuration (`environment.php`)
+
+When you created your environment.php file in the root of the project folder, you can make tweaks to that as necessary. If you don't need a value, don't remove it: just leave an empty value. 
+
+- `SLIM_MODE`: set to `production` on production, and `development` on development.
+- `TWIG_ENVIRONMENT` contains an array of options passed to twig. On production you could set `auto_reload` and `strict_variables` to `false` to get a minor performance boost, and to not trigger fatal errors on small issues.
+- `SLIM_APP_OPTIONS` contains an array of options passed into Slim. Set `displayErrorDetails` to `false` on production to not expose critical information. Errors are logged into `/logs/app.log`. 
+- `MEETUP_KEY` and `MEETUP_GROUP_PATH` are for the meetup.com integration. The key [can be found here](https://secure.meetup.com/meetup_api/key/), and the group path is the alias/slug of your meetup group, e.g. `modx-nederland`. 
+- `GA_PROFILE` is the google analytics profile ID. When it's not empty the google analytics code is added to the footer of the page automatically. Don't set this on development ;)
+- The `locale_set_default` call is used to set the right locale, and requires the `intl` php extension to be available. Feel free to remove 
+
+### Folder Structure
+
 The repository contains the following folders/files of note:
 
 - `/container` and `/handlers` contain some set-up for the Slim app, including setting up the view handler (Twig) and a logger (Monolog).
