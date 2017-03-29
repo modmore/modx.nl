@@ -29,5 +29,7 @@ $_ENV['MEETUP_GROUP_PATH'] = '';
 // Google analytics profile to add tracking code
 $_ENV['GA_PROFILE'] = '';
 
-locale_set_default('nl_NL.UTF-8');
+if (function_exists('locale_set_default')) {
+	locale_set_default('nl_NL.UTF-8');
+}
 
