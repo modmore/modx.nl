@@ -41,6 +41,31 @@
             </div>
         </div>
 
+        <div class="flex-grid-item" id="block-modx-feed">
+            <div class="flex-grid-item-inner">
+                <h2>Nieuws van MODX</h2>
+                <ul class="news-feed">
+                {% for item in news_feed %}
+                    {% if loop.first %}
+                        <li class="news-feed-item news-feed-item-first">
+                            <h3><a href="{{ item.link }}" target="_blank">{{ item.title }}</a></h3>
+                            <p>{{ item.description }}</p>
+                            <p>
+                                <a href="{{ item.link }}" target="_blank">Lees verder</a>
+                                <span class="news-feed-date">{{ item.pubDate|localizeddate('short', 'none') }}</span>
+                            </p>
+                        </li>
+                    {% else %}
+                        <li class="news-feed-item">
+                            <span class="news-feed-date">{{ item.pubDate|localizeddate('short', 'none') }}</span>
+                            <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+
         <div class="flex-grid-item" id="block-community">
             <div class="flex-grid-item-inner">
                 <h2>Belangrijke links</h2>
@@ -61,7 +86,7 @@
             </div>
         </div>
 
-        <div class="flex-grid-item double-width" id="block-waarom">
+        <div class="flex-grid-item double-width flex-right" id="block-waarom">
             <div class="flex-grid-item-inner">
                 <h2>Waarom MODX Revolution?</h2>
 

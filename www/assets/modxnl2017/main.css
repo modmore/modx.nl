@@ -79,6 +79,32 @@ body.loaded {
     margin-bottom: 0;
 }
 
+.news-feed {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.news-feed-item {
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+.news-feed-item-first {
+
+}
+.news-feed-item:first-child {
+    padding-top: 0;
+}
+.news-feed-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.news-feed-date {
+    color: #777;
+    display: block;
+    float: right;
+}
 
 @media (max-width: 767px) {
     .flex-grid-item, .flex-grid-item.double-width, .flex-grid-item.flex-right {
