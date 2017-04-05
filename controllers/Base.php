@@ -50,6 +50,11 @@ class Base
         $this->setArguments($args);
         $this->setVariable('args', $args);
         $this->setVariable('_env', $_ENV);
+        $revision = 'dev';
+        if (file_exists($_ENV['PROJECT_DIR'] . '.revision'))  {
+            $revision = file_get_contents($_ENV['PROJECT_DIR'] . '.revision');
+        }
+        $this->setVariable('revision', $revision);
         return true;
     }
 
