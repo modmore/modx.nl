@@ -61,9 +61,6 @@ body.loaded {
 .flex-grid-item.double-width {
     width: 66.666%;
 }
-.flex-grid-item-top-section {
-    padding-bottom: 1.5em;
-}
 .flex-grid-item-inner {
     background: #fff;
     border: 1px solid #ddd;
@@ -153,7 +150,7 @@ img {
     max-width: 100%;
 }
 
-.cta-button {
+.flex-button a {
     display: block;
     text-align: center;
     vertical-align: middle;
@@ -174,7 +171,7 @@ img {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     border: 0;
 }
-.cta-button:before {
+.flex-button a:before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -190,7 +187,7 @@ img {
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
 }
-.cta-button:hover:before, .cta-button:focus:before, .cta-button:active:before {
+.flex-button a:hover:before, .flex-button a:focus:before, .flex-button a:active:before {
     left: 0;
     right: 0;
 }
