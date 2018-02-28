@@ -11,11 +11,11 @@
         </div>
 
         <div class="flex-grid-item flex-right flex-button">
-            <a href="https://modx.com/download/" target="_blank">Download MODX</a>
+            <a href="https://modx.com/download/" target="_blank" rel="noopener">Download MODX</a>
         </div>
 
         <div class="flex-grid-item flex-right flex-button">
-            <a href="https://www.meetup.com/modx-nederland/">Aanmelden voor meetups</a>
+            <a href="https://www.meetup.com/modx-nederland/" target="_blank" rel="noopener">Aanmelden voor meetups</a>
         </div>
 
         <div class="flex-grid-item double-height flex-right" id="block-meetups">
@@ -32,7 +32,7 @@
                             {% endif %}
                         </small>
                         <br>
-                        <a href="{{ event.event_url }}" target="_blank">{{ event.name }}</a>
+                        <a href="{{ event.event_url }}" target="_blank" rel="noopener">{{ event.name }}</a>
                     </li>
                 {% else %}
                     <li>Er staan geen meetups op de planning.</li>
@@ -42,10 +42,10 @@
                 <h4>In de buurt</h4>
                 <p>Vind je het niet erg om wat verder te reizen? Wereldwijd vinden regelmatig MODX meetups plaats.</p>
                 <ul>
-                    <li><a href="https://www.meetup.com/MODX-Koeln/">Keulen, Duitsland</a>, om de maand</li>
-                    <li><a href="https://www.meetup.com/MODX-Muenchen/">München, Duitsland</a>, om de maand</li>
-                    <li><a href="https://www.meetup.com/MODX-Berlin/">Berlijn, Duitsland</a>, ongeveer 2x per jaar</li>
-                    <li><a href="https://www.meetup.com/MODX-Meetup-London/">Londen, Verenigd Koninkrijk</a>, jaarlijks</li>
+                    <li><a href="https://www.meetup.com/MODX-Koeln/" target="_blank" rel="noopener">Keulen, Duitsland</a>, om de maand</li>
+                    <li><a href="https://www.meetup.com/MODX-Muenchen/" target="_blank" rel="noopener">München, Duitsland</a>, om de maand</li>
+                    <li><a href="https://www.meetup.com/MODX-Berlin/" target="_blank" rel="noopener">Berlijn, Duitsland</a>, ongeveer 2x per jaar</li>
+                    <li><a href="https://www.meetup.com/MODX-Meetup-London/" target="_blank" rel="noopener">Londen, Verenigd Koninkrijk</a>, jaarlijks</li>
                 </ul>
             </div>
         </div>
@@ -57,17 +57,17 @@
                 {% for item in news_feed %}
                     {% if loop.first %}
                         <li class="news-feed-item news-feed-item-first">
-                            <h3><a href="{{ item.link }}" target="_blank">{{ item.title }}</a></h3>
+                            <h3><a href="{{ item.link }}" target="_blank" rel="noopener">{{ item.title }}</a></h3>
                             <p>{{ item.description }}</p>
                             <p>
-                                <a href="{{ item.link }}" target="_blank">Lees verder</a>
+                                <a href="{{ item.link }}" target="_blank" rel="noopener">Lees verder</a>
                                 <span class="news-feed-date">{{ item.pubDate|localizeddate('short', 'none') }}</span>
                             </p>
                         </li>
                     {% else %}
                         <li class="news-feed-item">
                             <span class="news-feed-date">{{ item.pubDate|localizeddate('short', 'none') }}</span>
-                            <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+                            <a href="{{ item.link }}" target="_blank" rel="noopener">{{ item.title }}</a>
                         </li>
                     {% endif %}
                 {% endfor %}
@@ -79,12 +79,12 @@
             <div class="flex-grid-item-inner">
                 <h2>Belangrijke links</h2>
                 <ul>
-                    <li><a href="https://modx.com">MODX.com</a></li>
-                    <li><a href="https://forums.modx.com">Officiële MODX forum</a>, ook in het <a href="https://forums.modx.com/board/108/dutch">Nederlands</a></li>
-                    <li><a href="https://docs.modx.com/">Documentatie</a></li>
-                    <li><a href="https://modx.org/">Praat mee op Slack</a></li>
-                    <li><a href="https://www.google.com/maps/d/viewer?mid=1VAaaAGRzaKQKDRpdY24a8R9dit0&ll=52.34445173160192%2C6.725895589062475&z=8">MODX bedrijvenkaart Nederland</a></li>
-                    <li><a href="https://www.linkedin.com/groups/3910580/profile">MODX Nederland op LinkedIn
+                    <li><a href="https://modx.com" target="_blank" rel="noopener">MODX.com</a></li>
+                    <li><a href="https://forums.modx.com" target="_blank" rel="noopener">Officiële MODX forum</a>, ook in het <a href="https://forums.modx.com/board/108/dutch" target="_blank" rel="noopener">Nederlands</a></li>
+                    <li><a href="https://docs.modx.com/" target="_blank" rel="noopener">Documentatie</a></li>
+                    <li><a href="https://modx.org/" target="_blank" rel="noopener">Praat mee op Slack</a></li>
+                    <li><a href="https://www.google.com/maps/d/viewer?mid=1VAaaAGRzaKQKDRpdY24a8R9dit0&ll=52.34445173160192%2C6.725895589062475&z=8" target="_blank" rel="noopener">MODX bedrijvenkaart Nederland</a></li>
+                    <li><a href="https://www.linkedin.com/groups/3910580/profile" target="_blank" rel="noopener">MODX Nederland op LinkedIn
                 </ul>
             </div>
         </div>
@@ -92,8 +92,8 @@
         <div class="flex-grid-item" id="over-modxnl">
             <div class="flex-grid-item-inner">
                 <h2>Over MODX.nl</h2>
-                <p>MODX.nl is opgezet door <a href="https://github.com/modmore/modx.nl/graphs/contributors">de community</a> als portaal voor Nederlandstalige MODXers.</p>
-                <p>Heb je toffe ideeën voor de site? <a href="https://github.com/modmore/modx.nl">Bouw mee op GitHub.</a></p>
+                <p>MODX.nl is opgezet door <a href="https://github.com/modmore/modx.nl/graphs/contributors" target="_blank" rel="noopener">de community</a> als portaal voor Nederlandstalige MODXers.</p>
+                <p>Heb je toffe ideeën voor de site? <a href="https://github.com/modmore/modx.nl" target="_blank" rel="noopener">Bouw mee op GitHub.</a></p>
             </div>
         </div>
 
@@ -101,15 +101,15 @@
             <div class="flex-grid-item-inner">
                 <h2>Waarom MODX Revolution?</h2>
 
-                <p>MODX is een flexibel platform dat designers en ontwikkelaars een krachtige basis geeft om een compleet eigen site te bouwen. Er zijn <a href="https://themeforest.net/category/cms-themes/modx-themes" title="MODX Themes">themes</a> beschikbaar, maar verreweg de meeste gebruikers bouwen de sites met eigen HTML, CSS en JavaScript. MODX forceert je niet een bepaalde structuur te gebruiken in je design, en je krijgt controle over elke regel code die MODX teruggeeft. Dit maakt het mogelijk om uiteenlopende sites en applicaties te bouwen.</p>
+                <p>MODX is een flexibel platform dat designers en ontwikkelaars een krachtige basis geeft om een compleet eigen site te bouwen. Er zijn <a href="https://themeforest.net/category/cms-themes/modx-themes" title="MODX Themes" target="_blank" rel="noopener">themes</a> beschikbaar, maar verreweg de meeste gebruikers bouwen de sites met eigen HTML, CSS en JavaScript. MODX forceert je niet een bepaalde structuur te gebruiken in je design, en je krijgt controle over elke regel code die MODX teruggeeft. Dit maakt het mogelijk om uiteenlopende sites en applicaties te bouwen.</p>
 
-                <p>Na het opzetten van je templates, custom velden ("Template Variabelen") en <a href="https://modx.com/extras/">uitbreidingen voor extra functionaliteit</a> kan de gebruiker eenvoudig de site beheren via de <em>Manager</em>, het krachtige beheerpaneel van de website. De hiërarchie van de pagina's in de manager gebruik je om de navigatie op de site te genereren, waardoor het ook voor minder technische personen intuïtief werkt. </p>
+                <p>Na het opzetten van je templates, custom velden ("Template Variabelen") en <a href="https://modx.com/extras/" target="_blank" rel="noopener">uitbreidingen voor extra functionaliteit</a> kan de gebruiker eenvoudig de site beheren via de <em>Manager</em>, het krachtige beheerpaneel van de website. De hiërarchie van de pagina's in de manager gebruik je om de navigatie op de site te genereren, waardoor het ook voor minder technische personen intuïtief werkt. </p>
 
                 <p>MODX heeft ook een ingebouwde multi-site oplossing, <em>Contexten</em> genoemd. Hiermee bouw je eenvoudig compleet verschillende sites in een enkele MODX installatie, wat ook uitermate geschikt is voor meertalige websites.</p>
 
                 <p>Voor ontwikkelaars is er ook veel vrijheid. MODX heeft een krachtige interne API, en gebruikt het xPDO ORM en query builder voor veilige database interactie. Met events is het mogelijk om de MODX core te beïnvloeden waarbij je upgrade path blijft behouden. </p>
 
-                <p>Qua security is MODX ook een goede keuze. Het gebruik van xPDO en andere maatregelen zorgt ervoor dat MODX <a href="https://modx.com/get-modx/security">zelden getroffen wordt door veiligheidsproblemen</a>.</p>
+                <p>Qua security is MODX ook een goede keuze. Het gebruik van xPDO en andere maatregelen zorgt ervoor dat MODX <a href="https://modx.com/get-modx/security" target="_blank" rel="noopener">zelden getroffen wordt door veiligheidsproblemen</a>.</p>
             </div>
         </div>
 
