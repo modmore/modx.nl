@@ -23,16 +23,16 @@
                 <h2>Meetups</h2>
                 <p>Leer andere gebruikers kennen en deel ervaringen tijdens MODX Meetups.</p>
 
-                <ul>
+                <ul class="news-feed">
                 {% for event in future_events %}
-                    <li>
-                        <small class="event-date">{{ event.time|localizeddate('medium', 'short') }}
-                            {% if event.venue is defined %}
-                            in {{ event.venue.city }}
-                            {% endif %}
-                        </small>
-                        <br>
+
+                    <li class="news-feed-item">
+                        <span class="news-feed-date">{{ event.time|localizeddate('short', 'none') }}</span>
                         <a href="{{ event.event_url }}" target="_blank" rel="noopener">{{ event.name }}</a>
+
+                        {% if event.venue is defined %}
+                            in {{ event.venue.city }}
+                        {% endif %}
                     </li>
                 {% else %}
                     <li>Er staan geen meetups op de planning.</li>
