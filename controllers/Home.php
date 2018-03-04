@@ -96,7 +96,13 @@ class Home extends Html
 
         $client = new Client();
 
-        $response = $client->request('GET', 'https://modx.com/feeds/modx-cms-blogs.rss');
+        try {
+            $response = $client->request('GET', 'https://modx.com/feeds/modx-cms-blogs.rss');
+        } catch (\Exception $e) {
+            $this->logger->addAlert(get_class($e) . ' loading https://modx.com/feeds/modx-cms-blogs.rss: ' . $e->getMessage());
+            $this->setVariable('news_feed', []);
+            return;
+        }
 
         if ($response->getStatusCode() === 200) {
             $data = [];

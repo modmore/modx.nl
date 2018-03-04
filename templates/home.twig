@@ -70,6 +70,10 @@
                             <a href="{{ item.link }}" target="_blank" rel="noopener">{{ item.title }}</a>
                         </li>
                     {% endif %}
+                {% else %}
+                    <li class="news-feed-item news-feed-item-first">
+                        <p>Sorry, op dit moment kunnen we het laatste nieuws niet laden. <a href="https://modx.com/" target="_blank" rel="noopener">Bezoek MODX.com</a></p>
+                    </li>
                 {% endfor %}
                 </ul>
             </div>
